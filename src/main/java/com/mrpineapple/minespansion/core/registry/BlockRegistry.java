@@ -1,11 +1,17 @@
 package com.mrpineapple.minespansion.core.registry;
 
+import com.mrpineapple.minespansion.common.blocks.QuickSand;
 import com.mrpineapple.minespansion.core.Minespansion;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -17,6 +23,7 @@ import java.util.function.Supplier;
 public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCK_REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, Minespansion.MODID);
 
+    public static final RegistryObject<Block> QUICK_SAND = register("quick_sand", ()-> new QuickSand(BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND).noCollission().strength(0.5F).sound(SoundType.SAND)));
     public static <T extends Block> RegistryObject<T> register(String id, Supplier<T> blockSupplier) {
         return register(id, blockSupplier, block1 -> new BlockItem(block1, new Item.Properties()));
     }
