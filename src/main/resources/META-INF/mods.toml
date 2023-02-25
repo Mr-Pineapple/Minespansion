@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[44,)"
+license="All rights reserved"
+[[mods]]
+modId="minespansion"
+version="${file.jarVersion}"
+displayName="Minespansion"
+logoFile="minespansion.png"
+credits="DinoSoup"
+authors="Mr. Pineapple"
+description='Minespansion, adding to the vanilla experience'
+
+[[dependencies.minespansion]]
+    modId="forge"
+    mandatory=true
+    versionRange="[44,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.minespansion]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.3,1.20)"
+    ordering="NONE"
+    side="BOTH"
