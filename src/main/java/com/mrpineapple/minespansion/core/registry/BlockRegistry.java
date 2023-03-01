@@ -20,7 +20,7 @@ import java.util.function.Supplier;
 public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCK_REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, Minespansion.MODID);
 
-    public static final RegistryObject<Block> QUICK_SAND = register("quick_sand", ()-> new QuickSand(BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND).strength(0.5F).sound(SoundType.SAND).dynamicShape()));
+    public static final RegistryObject<Block> QUICK_SAND = register("quick_sand", ()-> new QuickSand(BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND).strength(0.25F).sound(SoundType.SAND).dynamicShape()));
 
     public static <T extends Block> RegistryObject<T> register(String id, Supplier<T> blockSupplier) {
         return register(id, blockSupplier, block1 -> new BlockItem(block1, new Item.Properties()));

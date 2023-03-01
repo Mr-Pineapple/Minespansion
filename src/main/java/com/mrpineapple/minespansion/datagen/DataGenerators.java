@@ -12,10 +12,10 @@ public class DataGenerators {
         PackOutput packOutput = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(true, new MinespansionRecipeProvider(packOutput));
-        generator.addProvider(true, MinespansionLootTableProvider.create(packOutput));
-        generator.addProvider(true, new MinespansionBlockStateProvider(packOutput, existingFileHelper));
-        generator.addProvider(true, new MinespansionItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(false, new MinespansionRecipeProvider(packOutput));
+        generator.addProvider(false, MinespansionLootTableProvider.create(packOutput));
+        generator.addProvider(false, new MinespansionBlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(false, new MinespansionItemModelProvider(packOutput, existingFileHelper));
 
     }
 }

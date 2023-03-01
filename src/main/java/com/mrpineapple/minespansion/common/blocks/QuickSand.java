@@ -2,6 +2,9 @@ package com.mrpineapple.minespansion.common.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.FallingBlockEntity;
@@ -20,6 +23,16 @@ public class QuickSand extends FallingBlock {
     private static final VoxelShape FALLING_COLLISION_SHAPE = Shapes.box(0.0D, 0.0D, 0.0D, 1.0D, (double)0.9F, 1.0D);
     public QuickSand(BlockBehaviour.Properties properties) {
         super(properties);
+    }
+
+    @Override
+    public boolean skipRendering(BlockState state1, BlockState state2, Direction direction) {
+        return state2.is(this) ? true : super.skipRendering(state1, state2, direction);
+    }
+
+    @Override
+    public VoxelShape getOcclusionShape(BlockState p_60578_, BlockGetter p_60579_, BlockPos p_60580_) {
+        return Shapes.empty();
     }
 
     @Override
@@ -46,15 +59,10 @@ public class QuickSand extends FallingBlock {
         return Shapes.empty();
     }
 
-    public boolean skipRendering(BlockState p_154268_, BlockState p_154269_, Direction p_154270_) {
-        return p_154269_.is(this) ? true : super.skipRendering(p_154268_, p_154269_, p_154270_);
-    }
-
-    public VoxelShape getOcclusionShape(BlockState p_154272_, BlockGetter p_154273_, BlockPos p_154274_) {
-        return Shapes.empty();
-    }
-
     public VoxelShape getVisualShape(BlockState p_154276_, BlockGetter p_154277_, BlockPos p_154278_, CollisionContext p_154279_) {
         return Shapes.empty();
     }
+
+
+
 }
